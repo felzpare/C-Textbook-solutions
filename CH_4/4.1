@@ -1,1 +1,24 @@
 
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int num1, num2, larger_value;
+	double result;
+	
+	cout << "Please enter two numbers\n";
+	cin >> num1 >> num2;
+	
+	larger_value= (num1 > num2) ? num1 : num2;
+	cout << "The larger value is " << larger_value << endl;
+	
+	
+	cout << "\nPlease enter a result\n";
+	cin >> result;
+	
+	cout << ((result >=0) ? ("The result is positive\n") : ("The result is negative\n"));
+	
+	return 0;
+}
