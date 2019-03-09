@@ -1,0 +1,40 @@
+//This program will convert any number given from 1-10 to the roman numeral version
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int number;
+	
+	cout << "Please enter a number between 1 and 10\n";
+	cin >> number;
+	
+	switch (number)
+	{
+		case 1:cout << "The Roman numeral version of this number is I";
+			break;
+		case 2:cout << "The Roman numeral version of this number is II";
+			break;
+		case 3:cout << "The Roman numeral version of this number is III";
+			break;
+		case 4:cout << "The Roman numeral version of this number is IV";
+			break;
+		case 5:cout << "The Roman numeral version of this number is V";
+			break;
+		case 6:cout << "The Roman numeral version of this number is VI";
+			break;
+		case 7:cout << "The Roman numeral version of this number is VII";
+			break;
+		case 8:cout << "The Roman numeral version of this number is VIII";
+			break;
+		case 9:cout << "The Roman numeral version of this number is IX";
+			break;
+		case 10:cout << "The Roman numeral version of this number is X";
+			break;
+		default:cout << "Erro! You must enter a value between 1 and 10";
+	}
+	
+	
+	return 0;
+}
