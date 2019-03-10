@@ -1,0 +1,44 @@
+/*****
+*Author: Felicia Paredez
+*
+**Date: 3/10/19
+*
+***Programming challenge: Book Club Points
+*
+An Online Book club awards points to its customers based on the number of books
+purchased each month. Points are awarded as follows: 0 Books=0 points,
+1 book=5 points, 2 books=15 points, 3 books=30 points, 4 or more=50 points. Write a program
+that asks the user to enter the number of books purchased this month then displays
+the number of points awarded.
+*****/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int PurchasedBooks, Points;
+	
+	//Input
+	cout << "Please enter the number of books purchased\n";
+	cin >> PurchasedBooks;
+	
+	//Process
+	if (PurchasedBooks == 0)
+		Points = 0;
+	else if (PurchasedBooks == 1)
+		Points = 5;
+	else if (PurchasedBooks == 2)
+		Points = 15;
+	else if (PurchasedBooks == 3)
+		Points = 30;
+	else if (PurchasedBooks >= 4)
+		Points = 50;
+		
+	//Output
+	cout << "The number of points awarded is " << Points << endl;
+	
+	return 0;
+		
+		
+}
