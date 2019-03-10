@@ -1,0 +1,66 @@
+/*****
+*Author: Felicia Paredez
+*
+**Date: 3/10/2019
+*
+***Programming challenges: Magic Dates
+*
+The date June 10, 1960, is special because when we write it in the following format, the month
+times the day equals the year
+6/10/60
+Write a program that asks the user to enter a month (in numeric form), a day, and a two-digit year. The program,
+should then determine whether the month times the dat is equal to the year. If so, it should display a message saying
+the date is magic. Otherwise, it should display a message saying the date is not magic.
+Input validation: Think about what legal values the program should accept for month and day.
+*****/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int month, day, year;
+	
+	cout << "Please enter a month between 1 and 12\n";
+	cin >> month;
+	
+	if (month <= 0 || month >12)
+	{
+		cout << "\nThat is not a valid entry\n";
+		return 0;
+	}	
+	
+	
+	cout << "\nPlease enter a day of the month between 1 and 31\n";
+	cin >> day;
+	
+	if (day <= 0 || day>31)
+	{
+		cout << "\nThat is not a valid entry\n";
+		return 0;
+	}	
+	
+	
+	cout << "\nPlease enter a two-digit year\n";
+	cin >> year;
+	
+	if (year <=00 || year >99)
+	{
+		cout << "\nThat is not a valid entry\n";
+		return 0;
+	}	
+		
+	
+	
+	
+	if (month*day==year)
+	{
+		cout << "\n" << month << "/" << day << "/" << year << "\n";
+		cout << "\nThe date is magic!\n";
+	}
+	else
+		cout << "\nThe date is not magic\n";
+		
+	return 0;
+}
