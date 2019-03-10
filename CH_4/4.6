@@ -1,0 +1,86 @@
+/*****
+*Author: Felicia Paredez
+*
+**Date: 3/10/2019
+*
+***Programming challenge: Change for a dollar game
+*
+Create a change-counting game that asks the user to enter what coins to use to make exactly one dollar.
+The program should ask the user to enter the number of pennies, nickels, dimes, and quarters. If the total value of the coins
+entered is equal to one dollar, the program should congratulate the user for winning the game.
+Otherwise the program should display a message indicating whether the amount entered was more or less than one dollar.
+Use constant variables to hold the coin values.
+*****/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int pennies, nickels, dimes, quarters;
+	double totalvalue;
+	
+	const double PEN= 0.01,
+				 NICK= 0.05,
+				 DIME= 0.10,
+				 QUART= 0.25;
+				 
+	
+	cout << "Enter the number of pennies\n";
+	cin >> pennies;
+	if (pennies <0)
+	{
+		cout << "That is not a valid entry";
+		return 0;
+	}
+	
+	cout << "Enter the number of nickels\n";
+	cin >> nickels;
+	if (nickels <0)
+	{
+		cout << "That is not a valid entry";
+		return 0;
+	}
+	
+	cout << "Enter the number of dimes\n";
+	cin >> dimes;
+	if (dimes <0)
+	{
+		cout << "That is not a valid entry";
+		return 0;
+	}
+	
+	cout << "Enter the number of quarters\n";
+	cin >> quarters;
+	if (quarters <0)
+	{
+		cout << "That is not a valid entry";
+		return 0;
+	}
+	
+	
+	
+	totalvalue = (pennies*PEN) + (nickels*NICK) + (dimes*DIME) + (quarters*QUART);
+	
+	
+	
+	if (totalvalue==1)
+	{
+		cout << "\nCongratulations, you won";
+	}
+	else if (totalvalue > 1)
+	{
+		cout << "The amount entered was greater than a dollar";
+	}
+	else
+	{
+		cout << "The amount entered was less than a dollar";
+	}
+	
+	
+	
+	
+	
+	return 0;
+}
