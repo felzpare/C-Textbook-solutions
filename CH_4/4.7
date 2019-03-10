@@ -1,0 +1,51 @@
+/******
+*Author: Felicia Paredez
+*
+**Date: 3/10/19
+*
+***Programming challenge: Time Calculator
+*
+Write a program that asks the user to enter a number of seconds.
+-There are 86400 seconds in a day. If the number of seconds etered by the user is greater than or equal to 86400,
+the program should display the number of days in that many seconds.
+-There are 3600 seconds in an hour. If the number of seconds entered by the user is less than 86400 but is greater than or equal to 3600,
+the program should display the number of hours in that many seconds.
+-There are 60 seconds in a minute. If the number of seconds entered by the user
+is less than 3600 but is greater than or equals to 60, the program should display the number of minutes in that many seconds
+*****/
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	double Sec, Days, Hours, Min;
+	
+	//Input
+	cout << "Please enter a number of seconds" << endl;
+	cin >> Sec;
+	
+	//Process & Output
+	cout << fixed << showpoint << setprecision(2);
+	
+	if (Sec >= 86400)
+	{	Days = Sec/86400;
+		cout << "The number of days in the number of seconds entered is " << Days;	
+	}
+	
+	if (Sec < 86400 && Sec >= 3600)
+	{	Hours = Sec/3600;
+		cout << "The number of hours in the number of seconds entered is " << Hours;
+	}
+	
+	if (Sec < 3600 && Sec >= 60)
+	{	Min = Sec/60;
+		cout << "The number of minutes in the number of seconds entered is " << Min;
+	}
+	
+	
+	return 0;
+				
+}
