@@ -1,0 +1,120 @@
+/*****
+Author: Felicia Paredez
+Date: 3/15/19
+Programming challenges: Geometry calculator
+Write a program that displays the following menu:
+* Geometry Calculator
+    1. Calculate the Area of a Circle 
+    2. Calculate the Area of a Rectangle
+    3. Calculate the Area of a Triangle
+    4. Quit
+Enter your choice (1 - 4):
+*If the user enters 1, the program should ask for the radius of the 
+*circle and then display its area. Use 3.14159 for pi.
+*If the user enters 2, the program should ask for the length and
+*width of the rectangle, then display the rectangle's area.
+*If the user enters 3, the program should ask for the length of
+*the triangle's base and its height, then display its area.
+*If the user enters 4, the program should end.
+*****/
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	//Declare all variables
+	double Area, Radius, Length, Width, BaseL, Height;
+	int Choice;
+	const double PIVALUE = 3.14159;
+	
+	
+	/*****Input*****/
+	
+	//Display menu and get user choice
+	cout << "Geometry Calculator" << endl << endl;
+	cout << setw(38) << right << "1. Calculate the Area of a Circle" << endl;
+	cout << setw(41) << right << "2. Calculate the Area of a rectangle" << endl;
+	cout << setw(40) << right << "3. Calculate the Area of a triangle" << endl;
+	cout << setw(12) << right << "4. Quit" << endl << endl;
+	
+	cout << "Enter your choice (1-4)" << endl;
+	cin >> Choice;
+	if (Choice < 0 || Choice >4)
+	{
+		cout << "You have entered an invalid choice";
+		return 0;
+	}
+	
+	//Format
+	cout << fixed << setprecision(2);
+	
+	
+	
+	/*****Process and Output*****/
+	//Based on the menu choice different areas of shapes will be calculated but only if the values are non negative
+	if (Choice ==1)
+	{	cout << "Please enter the radius of the circle" << endl;
+		cin >> Radius;
+		if (Radius <0)
+		{
+			cout << "You cannot enter a negative value";
+			return 0;
+		}
+		
+		Area = PIVALUE * pow(Radius,2.0);
+		cout << "The area of the circle is " << Area;
+		
+	}
+	
+	
+	
+	else if (Choice ==2)
+	{	cout << "Please enter the length and width of the rectangle" << endl;
+		cin >> Length >> Width;
+		if (Length <0 || Width <0)
+		{
+			cout << "You cannot enter a negative value";
+			return 0;
+		}
+			
+		Area = Length * Width;
+		cout << "The area of the rectangle is " << Area;
+		
+	}
+	
+	
+	else if (Choice ==3)
+	{
+		cout << "Please enter the length of the triangle base and the height" << endl;
+		cin >> BaseL >> Height;
+		if (BaseL <0 || Height <0)
+		{
+			cout << "You cannot enter negative values" << endl;
+			return 0;
+		}
+
+		Area = (BaseL * Height) / 2;
+		cout << "The area of the triangle is " << Area;
+			
+	}
+	
+	
+	else if (Choice ==4)
+	{
+		cout << "You have chosen to exit the program. Goodbye" << endl;
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+				
+	}
