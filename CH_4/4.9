@@ -1,0 +1,85 @@
+/*****
+Author: Felicia Paredez
+Date: 3/15/19
+Programming challenge: Software Sales
+A software co. sells a package that retails for $199.
+Quantity discounts are given according to the following table.
+Quantity    Discount
+10-19       20%
+20-49       30%
+50-99       40%
+100 or more 50%
+Write a program that asks for the number of units purchased and computes the total cost of the purchase. 
+Input validation: Decide how the program should handle an input of less than 0.
+*****/
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	//Declare all variables
+	float Retail, TotalDiscount, TotalCost;
+	const double Package= 199, Dis1= 0.20, Dis2= 0.30, Dis3= 0.40, Dis4= 0.50;
+	int Unitnum;
+	
+	
+	/*****Input*****/
+	//Get number of units purchased
+	cout << "Please enter the amount of units purchased" << endl;
+	cin >> Unitnum;
+	if (Unitnum < 0)
+	{
+		cout << "You entered an invalid amount of units";
+		return 0;
+	}
+	
+	
+	/*****Process & Output*****/
+	//format
+	cout << fixed << setprecision(2);
+	
+	//Based on the number of units purchased different discounts, or no discount, will be applied and total cost displayed
+
+			if (Unitnum >=100)
+			{
+				Retail= Package * Unitnum;
+				TotalDiscount = Retail * Dis4;
+				TotalCost = Retail - TotalDiscount;
+				cout << "The total cost of your purchase, with discounts applied, is $" << TotalCost << endl;
+			}
+			else if (Unitnum >= 50)
+			{
+				Retail = Package * Unitnum;
+				TotalDiscount = Retail * Dis3;
+				TotalCost = Retail - TotalDiscount;
+				cout << "The total cost of your purchase, with discounts applied, is $" << TotalCost << endl;
+			}
+			else if (Unitnum >=20)
+			{
+				Retail = Package * Unitnum;
+				TotalDiscount = Retail * Dis2;
+				TotalCost = Retail - TotalDiscount;
+				cout << "The total cost of your purchase, with discounts applied, is $" << TotalCost << endl;
+			}
+			else if (Unitnum >=10)
+			{
+				Retail = Package * Unitnum;
+				TotalDiscount = Retail * Dis1;
+				TotalCost = Retail - TotalDiscount;
+				cout << "The total cost of your purchase, with discounts applied, is $" << TotalCost << endl;
+			}
+			else if (Unitnum >= 1)
+			{
+				Retail = Package * Unitnum;
+				cout << "Your total cost for the purchase is $" << Retail << endl;
+			}
+			
+	
+	
+
+	
+	
+	return 0;
+}
