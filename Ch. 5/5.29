@@ -1,0 +1,114 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/3/2019
+*
+Programming challenge: Using files - Savings account balance modification
+*
+Modify the savings account balance program described in programming
+challenge 25 so that it writes the report to a file. After the program 
+runs, print the file to hand in to your instructor.
+*****/
+
+#include <iostream>
+#include <iomanip>
+#include <fstream> // header for files
+
+using namespace std;
+
+int main()
+{
+	ofstream outputFile;
+	
+	outputFile.open("SavingsAccountBalance.txt");
+	
+	//declare all variables
+	double startbal, annualrate, monthlyrate, monthlyamount, deposit, withdrawn, totalbalance, balance2;
+	double totaldeposited=0,   //accumulator for total amount deposited
+		   totalwithdrawals=0,  //accumulator for total withdrawals
+		   totalinterest=0;      //accumulator for total interest
+		   
+	
+	
+	
+	//get user input for the starting balance and the annual interest rate
+	cout << fixed << showpoint << setprecision(2);
+	cout << "Enter a starting balance for a 3 month period $";
+	cin >> startbal;
+	totalbalance+=startbal;    //assign starting balance for the first month
+	
+	cout << "\nEnter an annual interest rate: ";
+	cin >> annualrate;
+	monthlyrate= (annualrate/100.0) /12;   //to determine the monthly rate from the annual rate and convert t0 decimals
+	
+	
+	
+	
+	
+	//the loop for the 3 month period
+	for(int count=1; count <4; count++)          //initialize, test/execute, update the counter variable for the 3 month period
+	{
+		balance2 = totalbalance; //balance2 becomes new starting balance per month
+		
+		//To get amount deposited for month 1. No negatives allowed
+		cout << "\nEnter the amount deposited for month " << count << ": $";
+		cin >> deposit;
+		
+		while (deposit<0)
+		{
+			cout << "Error no negative values allowed. Enter amount deposited for month " << count << ": $";
+			cin >> deposit;
+		}
+		totalbalance += deposit;
+		totaldeposited += deposit;
+		         
+		
+	
+		//To get amount withdrawn for the month
+		//No negatives allowed or amounts greater than bal
+		cout << "Enter the amount withdrawn for month " << count << ": $";
+		cin >> withdrawn;
+		
+		while (withdrawn <0 || withdrawn>totalbalance)
+		{
+			cout << "Error no negative values allowed. Amount withdrawn cannot be greater than the balance. Enter amount withdrawn again.\n" << endl;
+			cin >> withdrawn;
+		}
+		totalbalance-=withdrawn;
+		totalwithdrawals+=withdrawn;
+		
+		
+		
+		//To get monthly interest amount
+		monthlyamount= (((balance2 + totalbalance) / 2) * monthlyrate);
+		totalbalance+=monthlyamount;
+		totalinterest+=monthlyamount;
+		
+			
+		
+	}
+	
+	
+	
+	//display output and format
+	//to write the report into the output file
+	outputFile << fixed << setprecision(2);
+	outputFile << "-----------------------------------" << endl;
+	outputFile << "Savings account report (3 month period)" << endl;
+	outputFile << "-----------------------------------" << endl;
+	
+	outputFile << "Starting balance:  $" << startbal << endl;
+	outputFile << "Total deposits:    $" << totaldeposited << endl;
+	outputFile << "Total withdrawals: $" << totalwithdrawals << endl;
+	outputFile << "Total interest:    $" << totalinterest << endl;
+	outputFile << "Final balance for the 3 month period: $" << totalbalance;
+
+	
+	//close the output file
+	outputFile.close();
+	
+	cout << "\nThe final report was saved into a file.\n";
+	
+	return 0;
+	
+}
