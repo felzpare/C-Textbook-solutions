@@ -36,11 +36,11 @@ using namespace std;
 int main()
 {
 	//declare all variables
-	double startbal, annualrate, monthlyrate, monthlyamount, deposit, withdrawn, totalbalance;
+	double startbal, annualrate, monthlyrate, monthlyamount, deposit, withdrawn, totalbalance, balance2;
 	double totaldeposited=0,   //accumulator for total amount deposited
 		   totalwithdrawals=0,  //accumulator for total withdrawals
-		   totalinterest=0,      //accumulator for total interest
-		   balance2=0;
+		   totalinterest=0;     //accumulator for total interest
+		   
 	
 	
 	
@@ -77,7 +77,7 @@ int main()
 		//No negatives allowed or amounts greater than bal
 		cout << "Enter the amount withdrawn for month " << count << ": $";
 		cin >> withdrawn;
-		while (withdrawn <0 || withdrawn>balance2)
+		while (withdrawn <0 || withdrawn>totalbalance)
 		{
 			cout << "Error no negative values allowed. Amount withdrawn cannot be greater than the balance. Enter amount withdrawn again.\n" << endl;
 			cin >> withdrawn;
