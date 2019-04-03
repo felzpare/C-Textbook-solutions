@@ -1,0 +1,117 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/3/2019
+*
+Programming challenge: Savings Account Balance
+*
+Write a program that calculates the balance of a savings account at the end of a three-month
+period. It should ask the user for the starting balance and the annual interest rate. A loop
+should then iterate once for every month in the period, performing the following steps:
+a) Ask the user for the total amount deposited into the account during that month
+   and add it to the balance. Do not accept negative numbers.
+b) Ask the user for the total amount withdrawn from the account during that month
+   and subtract it from the balance. Do not accept negative numbers or numbers greater 
+   than the balance after the deposits for the month have been added in.
+c) Calculate the interest for that month. The monthly interest rate is the annual
+   interest rate divided by 12. Multiply the monthly interest rate by the
+   average of that month;s starting anf ending balance to get the interest amount
+   for that month. This amount should be added to the balance.
+   
+After the last iteration, the program should display a nicely formatted report that includes
+the following information:
+
+-starting balance at the beginning of the three-month period
+-total deposits made during the three months
+-total withdraws made during the three months
+-total interest posted to the account during the three months
+-final balance
+*****/
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	//declare all variables
+	double startbal, annualrate, monthlyrate, monthlyamount, deposit, withdrawn, totalbalance;
+	double totaldeposited=0,   //accumulator for total amount deposited
+		   totalwithdrawals=0,  //accumulator for total withdrawals
+		   totalinterest=0,      //accumulator for total interest
+		   balance2=0;
+	
+	
+	
+	//get user input for the starting balance and the annual interest rate
+	cout << fixed << showpoint << setprecision(2);
+	cout << "Enter a starting balance for a 3 month period $";
+	cin >> startbal;
+	totalbalance+=startbal;    //assign starting balance for the first month
+	
+	cout << "\nEnter an annual interest rate: ";
+	cin >> annualrate;
+	monthlyrate= (annualrate/100.0) /12;   //to determine the monthly rate from the annual rate and convert t0 decimals
+	
+	
+	//the loop for the 3 month period
+	for(int count=1; count <4; count++)          //initialize, test/execute, update the counter variable for the 3 month period
+	{
+		balance2 = totalbalance; //balance2 becomes new starting balance per month
+		
+		//To get amount deposited for month 1. No negatives allowed
+		cout << "\nEnter the amount deposited for month " << count << ": $";
+		cin >> deposit;
+		while (deposit<0)
+		{
+			cout << "Error no negative values allowed. Enter amount deposited for month " << count << ": $";
+			cin >> deposit;
+		}
+		totalbalance += deposit;
+		totaldeposited += deposit;
+		         
+		
+	
+		//To get amount withdrawn for the month
+		//No negatives allowed or amounts greater than bal
+		cout << "Enter the amount withdrawn for month " << count << ": $";
+		cin >> withdrawn;
+		while (withdrawn <0 || withdrawn>balance2)
+		{
+			cout << "Error no negative values allowed. Amount withdrawn cannot be greater than the balance. Enter amount withdrawn again.\n" << endl;
+			cin >> withdrawn;
+		}
+		totalbalance-=withdrawn;
+		totalwithdrawals+=withdrawn;
+		
+		
+		
+		//To get monthly interest amount
+		monthlyamount= (((balance2 + totalbalance) / 2) * monthlyrate);
+		totalbalance+=monthlyamount;
+		totalinterest+=monthlyamount;
+		
+			
+		
+	}
+	
+	
+	
+	//display output and format
+	cout << fixed << setprecision(2);
+	cout << "-----------------------------------" << endl;
+	cout << "Savings account report (3 month period)" << endl;
+	cout << "-----------------------------------" << endl;
+	
+	cout << "Starting balance:  $" << startbal << endl;
+	cout << "Total deposits:    $" << totaldeposited << endl;
+	cout << "Total withdrawals: $" << totalwithdrawals << endl;
+	cout << "Total interest:    $" << totalinterest << endl;
+	cout << "Final balance for the 3 month period: $" << totalbalance;
+
+	
+	
+	return 0;
+	
+}
