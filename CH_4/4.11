@@ -42,7 +42,7 @@ int main()
 	
 	cout << "Enter your choice (1-4)" << endl;
 	cin >> Choice;
-	if (Choice < 0 || Choice >4)
+	if (Choice <= 0 || Choice >4)
 	{
 		cout << "You have entered an invalid choice";
 		return 0;
@@ -55,54 +55,58 @@ int main()
 	
 	/*****Process and Output*****/
 	//Based on the menu choice different areas of shapes will be calculated but only if the values are non negative
-	if (Choice ==1)
-	{	cout << "Please enter the radius of the circle" << endl;
-		cin >> Radius;
-		if (Radius <0)
-		{
-			cout << "You cannot enter a negative value";
-			return 0;
-		}
-		
-		Area = PIVALUE * pow(Radius,2.0);
-		cout << "The area of the circle is " << Area;
-		
-	}
-	
-	
-	
-	else if (Choice ==2)
-	{	cout << "Please enter the length and width of the rectangle" << endl;
-		cin >> Length >> Width;
-		if (Length <0 || Width <0)
-		{
-			cout << "You cannot enter a negative value";
-			return 0;
-		}
-			
-		Area = Length * Width;
-		cout << "The area of the rectangle is " << Area;
-		
-	}
-	
-	
-	else if (Choice ==3)
+	if (Choice==1 | Choice==2 | Choice==3)
 	{
-		cout << "Please enter the length of the triangle base and the height" << endl;
-		cin >> BaseL >> Height;
-		if (BaseL <0 || Height <0)
-		{
-			cout << "You cannot enter negative values" << endl;
-			return 0;
+		if (Choice ==1)
+		{	cout << "Please enter the radius of the circle" << endl;
+			cin >> Radius;
+			if (Radius <0)
+			{
+				cout << "You cannot enter a negative value";
+				return 0;
+			}
+			
+			Area = PIVALUE * pow(Radius,2.0);
+			cout << "The area of the circle is " << Area;
+			
 		}
-
-		Area = (BaseL * Height) / 2;
-		cout << "The area of the triangle is " << Area;
+		
+		
+		
+		else if (Choice ==2)
+		{	cout << "Please enter the length and width of the rectangle" << endl;
+			cin >> Length >> Width;
+			if (Length <0 || Width <0)
+			{
+				cout << "You cannot enter a negative value";
+				return 0;
+			}
+				
+			Area = Length * Width;
+			cout << "The area of the rectangle is " << Area;
+			
+		}
+		
+		
+		else if (Choice ==3)
+		{
+			cout << "Please enter the length of the triangle base and the height" << endl;
+			cin >> BaseL >> Height;
+			if (BaseL <0 || Height <0)
+			{
+				cout << "You cannot enter negative values" << endl;
+				return 0;
+			}
+	
+			Area = (BaseL * Height) / 2;
+			cout << "The area of the triangle is " << Area;
+				
+		}
 			
 	}
 	
 	
-	else if (Choice ==4)
+	else
 	{
 		cout << "You have chosen to exit the program. Goodbye" << endl;
 		return 0;
@@ -118,3 +122,5 @@ int main()
 	return 0;
 				
 	}
+
+	
