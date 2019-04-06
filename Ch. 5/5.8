@@ -1,0 +1,54 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/6/2019
+*
+Programming challenge: Pennies for pay
+Write a program that calculates how much a person earns
+in a month if the salary is one penny the first day, two pennies 
+the second day, four pennies the third day, and so on with the
+daily doubling each day the employee works. The program should ask the user
+for the number of days the employee worked during the month,
+validate that it is between 1 and 3`, and then display a table showing how much
+the salary was for each day worked, as well as the total pay earned for the month.
+The output should be displayed in dollars with two decimal points, not in pennies
+*****/
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	int count=1, days; //count is the incrementer, user inputted control variable
+	double pay=0.01, total=0.00; //pay is the starting value and total is the accumulator
+	
+	//user inputted days worked
+	cout << "Enter the number of days worked for the month" << endl;
+	cin >> days;
+	
+	while (!(days>=1 && days<=31))
+	{
+		cout << "Enter the number of days worked for the month between 1 and 31";
+		cin >> days;
+	}
+	
+	while(count <=days)
+	{
+		
+		cout << "Salary for day " << count << ": $" << pay << endl;
+		count++;
+		total+=pay;
+		
+		pay= pay*2;
+		
+		
+	}
+	
+	
+	cout << "The total monthly salary is: $" << fixed << setprecision(2) << total;
+	
+	
+	
+	return 0;
+}
