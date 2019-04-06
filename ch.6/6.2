@@ -1,0 +1,66 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/6/2019
+*
+Programming challenge: Celsius temperature table
+The formula for converting a temperature from fahrenheit to Celsius is:
+C = (5/9)(F-32)
+where F is the fahrenheit temperature and D is the celsius temperature.
+Write a function named celsius that accepts a fahrenheit temperature
+as an argument and returns the temperature converted to celsius. Demonstrate
+the function by calling it in a loop that displays a table of the fahrenheit
+temperatures 0 through 20 and their celsius equivalents.
+*****/
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+//function prototype
+double celsius(double Ftemp);
+
+
+
+/********************************
+*			Main				*
+*********************************/
+int main()
+{
+	//declare all variables
+	double Ftemp, Ctemp;
+	
+	cout << "********************************************" << endl;
+	cout << "*" << right << setw(33) << "Fahrenheit to Celsius table" << right << setw(10) << "*" << endl;
+	cout << "********************************************" << endl;
+	
+	for (int count; count <=20; count++)
+	{
+		Ftemp=count;
+		Ctemp= celsius(Ftemp);
+		
+		//format and display
+		cout << fixed << setprecision(2);
+		cout << count << "F = " << Ctemp << "C\n";
+		
+	}
+	
+	cout << "*******************************************" << endl;
+	
+	return 0;
+}
+
+
+
+
+
+/****************************************
+*				celsius					*
+*	this function converts a
+*	fahrenheit temperature to celsius	*
+*****************************************/
+double celsius(double Ftemp)
+{
+	Ftemp = (5.0/9.0) * (Ftemp - 32);
+	return Ftemp;
+}
