@@ -1,0 +1,43 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/6/2019
+*
+Programming challenge: Celsius to Fahrenheit
+In one of the Ch3 programming challenges you were asked to
+write a program that converts a Celsius temperature to Fahrenheit.
+Modify that program so it uses a loop to display a table of the Celsius
+temperatures from 0 to 30 and their Fahrenheit eqivalents.
+F= 9/5C +32
+*****/
+#include <iostream>
+
+
+using namespace std;
+
+int main()
+{
+	//Declare all variables
+	double Ctemp=0;  //counter
+	double Ftemp; 
+	
+	//Program title
+	cout << "*********************************" << endl;
+	cout << "Celsius to Fahrenheit calculator" << endl;
+	cout << "*********************************" << endl;
+
+	
+	//Will convert celsius temperatures of 0-30 to fahrenheit and display the output
+	while (Ctemp <=30)
+	{
+		
+		cout << Ctemp << " C ";
+		Ftemp=((9/5.0 * Ctemp)+32);
+		
+		cout << " = " << Ftemp << " F " << endl;
+		
+		Ctemp++;
+	}
+	
+	return 0;
+}
