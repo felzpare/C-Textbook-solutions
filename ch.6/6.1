@@ -1,0 +1,77 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/6/2019
+*
+Programming challenge: Markup
+Write a program that asks the user to enter an item's wholesale cost and its markup
+percentage. It should then display the item's retail price. For example:
+  -If an item's wholesale cost is $5.00 and its markup percentage s 100 percent, then
+  the item's retail price is $10.00.
+  -If an item's wholesale cost is $5.00 and its markup percentage is 50 percent, then
+  the item's retail price is $7.50.
+The program should have a function named calculateRetail that receives the wholesale cost and the markup percentage
+as arguments and returns the retail price of the item.
+*****/
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+//function prototypes
+double calculateRetail( double cost, double markup);
+
+
+/***************************************
+*						M A I N							*		
+*****************************************/
+int main()
+{
+	//declare all variables
+	double cost, markup, retailPrice;
+	
+	//get items wholesale cost and its markup percentage
+	//validate user input
+	do
+	{
+		cout << "Enter an items wholesale cost $";
+		cin >> cost;	
+	} while (cost <0);
+	
+	
+	do
+	{
+		cout << "Enter the items markup percentage ";
+		cin >> markup;
+	} while (markup <0);
+	
+	
+	
+	retailPrice= calculateRetail(cost, markup);
+	
+	//format and display output
+	cout << fixed << setprecision(2);
+	cout << "The items retail price is $" << retailPrice;
+	
+	return 0;
+	
+}
+
+
+
+/********************************************************
+*                 calculateRetail
+*	This function calculates the items retail price		*
+*	by dividing the markup percentage by 100 and then	*
+*	multiplying the value by the cost and then adding 	*
+*	it to the cost to produce the final price			*
+*********************************************************/
+double calculateRetail(double cost, double markup)
+{
+	markup = markup / 100;
+	cost = (cost* markup) + cost;
+	return cost;
+	
+}
+
