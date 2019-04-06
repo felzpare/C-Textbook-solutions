@@ -1,0 +1,65 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/6/2019
+*
+Programming challenge: Falling distance
+The following formula can be used to determine the distance an object falls due to gravity in a specific time period:
+d = 1/2 * g *t^2
+The variables in the formula are as follows:
+- d is the distance in meters,
+- g is 9.8,
+- and t is the time in seconds that the object has been falling
+Write a function named fallingDistance that accepts an objects falling time (in sseconds)
+as an argument. The function should return the distance, in meters, that the object has fallen during that
+time interval. Write a program that demonstates the function by calling it in a loop that passes the values
+1 through 10 as arguments and displays the return value.
+*****/
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+//Function prototype
+double fallingDistance (double timesec);
+
+
+/********************************
+*			Main				*
+*********************************/
+int main()
+{
+	//Declare all variables 
+	double timesec, distance;
+	
+	//Display program title
+	cout << "******************************************************************************" << endl;
+	cout << "*" << right << setw(50) << "Falling Distance Calculator" << right << setw(27) << "*" << endl;
+	cout << "******************************************************************************" << endl << endl;
+	
+	//Calculate and display the distance (m) given time (sec) for 1-10 sec
+	for (int count = 1; count <= 10; count++)
+	{
+		timesec = count;
+		distance = fallingDistance(timesec);
+		cout << "The distance that an object has fallen after " << count << " seconds is " << distance << " meters." << endl << endl;
+	}
+	
+	
+	return 0;
+}
+
+
+
+/****************************************
+*			fallingDistance				*
+*	This function will calculate the	*
+*	distance that an object falls		*
+*	due to gravity(9.8) in a specific	*
+* 	time period(sec).					*
+*****************************************/
+double fallingDistance (double timesec)
+{
+	timesec= (timesec * timesec) * (9.8) * (1.0/2.0);
+	return timesec;
+}
