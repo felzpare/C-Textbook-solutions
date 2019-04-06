@@ -1,0 +1,53 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/6/2019
+*
+Programming challenge: Sum of Numbers
+Write a program that asks the user for a positive integer value
+and that uses a loop to validate the input. The program should
+then use a second loop to compute the sum of all the integers
+from 1 up to the number entered. For example, if the user 
+enters 50, the loop will find the sum of 1,2,3,4 to 50.
+*****/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	//declare all variables
+	int total;      //accumulates the totals
+	int numvalue;   //user inputted loop control variable
+	int startvalue; //the counter incremented
+	
+	
+	 
+	//get user input and validate it
+	cout << "Enter a positive integer value" << endl;
+	cin >> numvalue;
+	while (!(numvalue>0))
+	{
+		cout << "Enter only a positive integer value" << endl;
+		cin >> numvalue;
+	}
+	
+	
+	
+	//looping to add each value sequentially until the final user value is reached
+	for (startvalue=1; startvalue<=numvalue ;startvalue++)
+	{
+		total+=startvalue;
+	}
+	
+	
+	
+	//to display total
+	cout << "The total for numbers 1 through " << numvalue << " is: " << total;
+	
+	
+	
+	
+	
+	return 0;
+}
