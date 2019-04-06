@@ -1,0 +1,36 @@
+/*****
+Author: Felicia Paredez
+*
+Date: 4/6/2019 
+*
+Programming challenge: Characters for the ASCII codes
+Write a program that uses a loop to display
+the characters for each ASCII code 32 through 127.
+Display 16 characters on each line with one space
+between characters.
+*****/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	char letters;
+	int code;
+	
+	for (code=32; code <= 127; code++)
+	{
+		if (code % 16==0 && code >32)
+		{
+			cout << "\n";
+		}
+		
+		
+	letters=code;
+	cout << letters << " ";
+			
+	}
+	
+	
+	return 0;
+}
